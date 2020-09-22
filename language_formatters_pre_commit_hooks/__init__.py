@@ -6,4 +6,4 @@ from __future__ import unicode_literals
 import pkg_resources
 
 
-__version__ = pkg_resources.get_distribution('language_formatters_pre_commit_hooks').version
+__version__ = pkg_resources.get_distribution("language_formatters_pre_commit_hooks").version
