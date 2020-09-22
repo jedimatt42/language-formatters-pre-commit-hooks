@@ -1,8 +1,4 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import
-from __future__ import print_function
-from __future__ import unicode_literals
-
 import argparse
 import io
 import re
@@ -104,8 +100,8 @@ def pretty_format_yaml(argv=None):
 
                 if args.autofix:
                     print("Fixing file {}".format(yaml_file))
-                    with io.open(yaml_file, "w", encoding="UTF-8") as f:
-                        f.write(text_type(pretty_content))
+                    with open(yaml_file, "w", encoding="UTF-8") as f:
+                        f.write(str(pretty_content))
 
                 status = 1
         except YAMLError:  # pragma: no cover

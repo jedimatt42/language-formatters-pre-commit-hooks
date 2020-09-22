@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import
-from __future__ import print_function
-from __future__ import unicode_literals
+from unittest import mock
 
-import mock
 import pytest
 
 from language_formatters_pre_commit_hooks.pre_conditions import _assert_command_succeed

@@ -1,13 +1,9 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import
-from __future__ import print_function
-from __future__ import unicode_literals
-
 import os
 import sys
 from os.path import basename
+from unittest import mock
 
-import mock
 import pytest
 from six.moves.urllib.parse import urljoin
 from six.moves.urllib.request import pathname2url

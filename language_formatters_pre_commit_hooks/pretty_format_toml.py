@@ -1,8 +1,4 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import
-from __future__ import print_function
-from __future__ import unicode_literals
-
 import argparse
 import io
 import sys
@@ -42,7 +38,7 @@ def pretty_format_toml(argv=None):
 
                 if args.autofix:
                     print("Fixing file {}".format(toml_file))
-                    with io.open(toml_file, "w", encoding="UTF-8") as f:
+                    with open(toml_file, "w", encoding="UTF-8") as f:
                         f.write(prettified_content)
 
                 status = 1

@@ -1,8 +1,4 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import
-from __future__ import print_function
-from __future__ import unicode_literals
-
 import argparse
 import io
 import sys
@@ -36,10 +32,7 @@ def pretty_format_ini(argv=None):
 
         config_parser = ConfigParser()
         try:
-            if PY3:  # pragma: no cover # py3+ only
-                config_parser.read_string(string_content)
-            else:  # pragma: no cover # py27 only
-                config_parser.readfp(StringIO(string_content))
+            config_parser.read_string(string_content)
 
             pretty_content = StringIO()
             config_parser.write(pretty_content)
@@ -53,8 +46,8 @@ def pretty_format_ini(argv=None):
 
                 if args.autofix:
                     print("Fixing file {}".format(ini_file))
-                    with io.open(ini_file, "w", encoding="UTF-8") as f:
-                        f.write(text_type(pretty_content_str))
+                    with open(ini_file, "w", encoding="UTF-8") as f:
+                        f.write(str(pretty_content_str))
 
                 status = 1
         except Error:
