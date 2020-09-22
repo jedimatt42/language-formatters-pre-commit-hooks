@@ -3,12 +3,11 @@ import argparse
 import io
 import re
 import sys
+from io import StringIO
 from sys import maxsize
 
 from ruamel.yaml import YAML
 from ruamel.yaml.error import YAMLError
-from six import StringIO
-from six import text_type
 
 
 def _process_single_document(document, yaml):

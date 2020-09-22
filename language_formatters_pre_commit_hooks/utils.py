@@ -4,9 +4,9 @@ import shutil
 import subprocess
 import sys
 import tempfile
+from urllib.parse import urlparse
 
 import requests
-from six.moves.urllib.parse import urlparse
 
 
 def run_command(command):

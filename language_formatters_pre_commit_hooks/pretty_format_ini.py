@@ -2,12 +2,9 @@
 import argparse
 import io
 import sys
-
-from six import PY3
-from six import StringIO
-from six import text_type
-from six.moves.configparser import ConfigParser
-from six.moves.configparser import Error
+from configparser import ConfigParser
+from configparser import Error
+from io import StringIO
 
 from language_formatters_pre_commit_hooks.utils import remove_trailing_whitespaces_and_set_new_line_ending
 

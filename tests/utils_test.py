@@ -3,10 +3,10 @@ import os
 import sys
 from os.path import basename
 from unittest import mock
+from urllib.parse import urljoin
+from urllib.request import pathname2url
 
 import pytest
-from six.moves.urllib.parse import urljoin
-from six.moves.urllib.request import pathname2url
 
 from language_formatters_pre_commit_hooks.utils import download_url
 from language_formatters_pre_commit_hooks.utils import run_command
