@@ -118,7 +118,7 @@ def pretty_format_yaml(argv=None):
                     yaml_file,
                 ),
             )
-            return 1
+            status = 1
 
     return status
 

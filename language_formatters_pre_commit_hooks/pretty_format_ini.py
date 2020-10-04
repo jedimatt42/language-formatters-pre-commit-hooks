@@ -61,7 +61,7 @@ def pretty_format_ini(argv=None):
                 status = 1
         except Error:
             print("Input File {} is not a valid INI file".format(ini_file))
-            return 1
+            status = 1
 
     return status
 
