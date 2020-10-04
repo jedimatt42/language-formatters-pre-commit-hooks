@@ -1,5 +1,6 @@
+  # This is a comment
 [root]
-root_key = "root_key"
+root_key= "root_key"
 
       [[inner]]
       inner_key = "inner_key"
