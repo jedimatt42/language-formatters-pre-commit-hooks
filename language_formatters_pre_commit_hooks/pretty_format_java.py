@@ -38,7 +38,6 @@ def __download_google_java_formatter_jar(version: str) -> str:  # pragma: no cov
 
 def __download_override_url(url: str) -> str:  # pragma: no cover
     try:
-        print("Downloading google java style tool from {url}".format(url=url))
         return download_url(url, "google-java-formatter.jar")
     except:  # noqa: E722 (allow usage of bare 'except')
         raise RuntimeError(
