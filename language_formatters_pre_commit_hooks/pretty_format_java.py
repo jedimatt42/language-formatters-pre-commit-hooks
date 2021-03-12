@@ -25,7 +25,7 @@ def __download_google_java_formatter_jar(version: str) -> str:  # pragma: no cov
 
     url_to_download = get_url(version)
     try:
-        return download_url(get_url(version), "google-java-formatter{version}.jar".format(version=version))
+        return download_url(url_to_download, "google-java-formatter{version}.jar".format(version=version))
     except:  # noqa: E722 (allow usage of bare 'except')
         raise RuntimeError(
             "Failed to download {url}. Probably the requested version, {version}, is "
@@ -33,6 +33,16 @@ def __download_google_java_formatter_jar(version: str) -> str:  # pragma: no cov
                 url=url_to_download,
                 version=version,
             ),
+        )
+
+
+def __download_override_url(url: str) -> str:  # pragma: no cover
+    try:
+        print("Downloading google java style tool from {url}".format(url=url))
+        return download_url(url, "google-java-formatter.jar")
+    except:  # noqa: E722 (allow usage of bare 'except')
+        raise RuntimeError(
+            "Failed to download {url}."
         )
 
 
@@ -57,13 +67,22 @@ def pretty_format_java(argv: typing.Optional[typing.List[str]] = None) -> int:
         dest="aosp",
         help="Formats Java code into AOSP format",
     )
+    parser.add_argument(
+        "--url",
+        dest="override_url",
+        default="",
+        help="download url of jar artifact"
+    )
 
     parser.add_argument("filenames", nargs="*", help="Filenames to fix")
     args = parser.parse_args(argv)
 
-    google_java_formatter_jar = __download_google_java_formatter_jar(
-        args.google_java_formatter_version,
-    )
+    if args.override_url:
+        google_java_formatter_jar = __download_override_url(args.override_url)
+    else:    
+        google_java_formatter_jar = __download_google_java_formatter_jar(
+            args.google_java_formatter_version
+        )
 
     cmd_args = ["java", "-jar", google_java_formatter_jar, "--set-exit-if-changed"]
     if args.aosp:  # pragma: no cover
